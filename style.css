@@ -1,0 +1,79 @@
+body {
+  background-color: #2f2b2b;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  user-select: none;
+}
+
+.main {
+  display: flex;
+  gap: 200px;
+}
+
+.gem-container {
+  text-align: center;
+  font-size: 25px;
+}
+
+.gem-image {
+  margin-top: 50px;
+  width: 300px;
+}
+
+.gem-image:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.gem-image:active {
+  opacity: 0.825;
+  transform: scale(1.02)
+}
+
+.upgrades-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.upgrade {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border: 4px solid white;
+  border-radius: 5px;
+  height: 60px;
+  width: 320px;
+}
+
+.upgrade:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.upgrade-img {
+  width: 55px;
+}
+
+.upgrade-gem {
+  width: 30px;
+  height: 30px;
+}
+
+.mid-section h3 {
+  margin: 10px 0 0 0;
+}
+
+.gem-cost-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+

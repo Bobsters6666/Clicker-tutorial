@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Gem Clicker</title>
+</head>
+<body>
+
+  <section>
+    <div class="main">
+      <div class="gem-container">
+        <div>
+          Gem  <span class="gem">60</span>
+        </div>
+        <div>
+          <img src="./assets/gem.png" alt="" class="gem-image" onclick="incrementGems()" draggable="false">
+        </div>
+      </div>
+
+      <div class="upgrades-container">
+
+        <!-- CLicker -->
+        <div class="upgrade" onclick="buyClicker()">
+          <div>
+            <img src="./assets/clicker-white.png" alt="" class="upgrade-img" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h3>Clicker</h3>
+            <div class="gem-cost-container">
+              <p id="clicker-cost">10</p>
+              <img src="./assets/gem.png" alt="" class="upgrade-gem" draggable="false">
+            </div>
+          </div>
+          <div>
+            Level: <span id="clicker-level">0</span>
+          </div>
+        </div>
+
+        <div class="upgrade" onclick="buyPickaxe()">
+          <div>
+            <img src="./assets/pickaxe.png" alt="" class="upgrade-img" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h3>Pickaxe</h3>
+            <div class="gem-cost-container">
+              <p id="pickaxe-cost">42</p>
+              <img src="./assets/gem.png" alt="" class="upgrade-gem" draggable="false">
+            </div>
+          </div>
+          <div>
+            Level: <span id="pickaxe-level">0</span>
+          </div>
+        </div>
+
+        <div class="upgrade" onclick="buyMiner()">
+          <div>
+            <img src="./assets/miner.png" alt="" class="upgrade-img" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h3>Miner</h3>
+            <div class="gem-cost-container">
+              <p id="miner-cost">140</p>
+              <img src="./assets/gem.png" alt="" class="upgrade-gem" draggable="false">
+            </div>
+          </div>
+          <div>
+            Level: <span id="miner-level">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <script src="index.js"></script>
+</body>
+</html>
