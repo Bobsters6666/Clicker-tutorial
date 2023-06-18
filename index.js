@@ -30,7 +30,7 @@ function handleClick(event) {
 
   newDiv = document.createElement('div')
   newDiv.innerHTML = `+${Math.round(gpc)}`
-  newDiv.style.cssText = `color: white; position: absolute; top: ${y}px; left: ${x}px; font-size: 13px; pointer-events: none;`
+  newDiv.style.cssText = `color: white; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
   gemImgHTML.appendChild(newDiv)
 
   newDiv.classList.add('fade-up')
@@ -78,7 +78,7 @@ function buyFactory() {
   if ( gem >= factoryCost.innerHTML ) {
     gem -= factoryCost.innerHTML
     gps += 33 * 1.14
-    minerLevel.innerHTML ++
+    factoryLevel.innerHTML ++
     factoryCost.innerHTML = Math.round(parseFloat(factoryCost.innerHTML) * 1.18)
   }
 }
