@@ -12,39 +12,101 @@
     <div class="main">
       <div class="gem-container">
         <div>
-          Gem  <span class="gem">0</span>
+          Gems: <br/> <span class="gem">6000</span>
         </div>
-        <div>
-          <img src="./assets/gem.png" alt="" class="gem-image" onclick="incrementGems()" draggable="false">
+        <div class="gem-img-container">
+          <img src="./assets/upgrades/gem.png" alt="" class="gem-image" onclick="handleClick(event)" draggable="false">
         </div>
       </div>
 
       <div class="upgrades-container">
+
+        <!-- CLicker -->
         <div class="upgrade" onclick="buyClicker()">
-          <div>
-            <img src="./assets/clicker-white.png" alt="" class="upgrade-img">
+          <div class="upgrade-info-container">
+            <p>Next Level <br/>+<span id="clicker-gem">1</span></p>
+          </div>
+          <div class="">
+            <img src="./assets/upgrades/clicker-white.png" alt="" class="upgrade-img" draggable="false">
           </div>
           <div class="mid-section">
             <h3>Clicker</h3>
             <div class="gem-cost-container">
               <p id="clicker-cost">10</p>
-              <img src="./assets/gem.png" alt="" class="upgrade-gem">
+              <img src="./assets/upgrades/gem.png" alt="" class="upgrade-gem" draggable="false">
             </div>
           </div>
           <div>
             Level: <span id="clicker-level">0</span>
           </div>
         </div>
-        <div>
 
+        <div class="upgrade" onclick="buyPickaxe()">
+          <div class="upgrade-info-container">
+            <p>Next Level <br/>+<span id="clicker-gem">1</span></p>
+          </div>
+          <div>
+            <img src="./assets/upgrades/pickaxe.png" alt="" class="upgrade-img" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h3>Pickaxe</h3>
+            <div class="gem-cost-container">
+              <p id="pickaxe-cost">42</p>
+              <img src="./assets/upgrades/gem.png" alt="" class="upgrade-gem" draggable="false">
+            </div>
+          </div>
+          <div>
+            Level: <span id="pickaxe-level">0</span>
+          </div>
+        </div>
+
+        <div class="upgrade" onclick="buyMiner()">
+          <div>
+            <img src="./assets/upgrades/miner.png" alt="" class="upgrade-img" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h3>Miner</h3>
+            <div class="gem-cost-container">
+              <p id="miner-cost">140</p>
+              <img src="./assets/upgrades/gem.png" alt="" class="upgrade-gem" draggable="false">
+            </div>
+          </div>
+          <div>
+            Level: <span id="miner-level">0</span>
+          </div>
+        </div>
+
+        <div class="upgrade" onclick="buyFactory()">
+          <div>
+            <img src="./assets/upgrades/factory.png" alt="" class="upgrade-img" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h3>Factory</h3>
+            <div class="gem-cost-container">
+              <p id="factory-cost">740</p>
+              <img src="./assets/upgrades/gem.png" alt="" class="upgrade-gem" draggable="false">
+            </div>
+          </div>
+          <div>
+            Level: <span id="factory-level">0</span>
+          </div>
         </div>
       </div>
     </div>
+    <div class="stats">
+      <div class="stats-info">
+        <div>Gems per click: <span id="gpc">1</span></div>
+        <div>Gems per second: <span id="gps">0</span></div>
+      </div>
+
+      <div class="skills-container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
   </section>
-
-
-
-
   <script src="index.js"></script>
 </body>
 </html>
