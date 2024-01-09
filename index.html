@@ -1,112 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Gem Clicker</title>
-</head>
-<body>
-
-  <section>
-    <div class="main">
-      <div class="gem-container">
-        <div>
-          Gems: <br/> <span class="gem">6000</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Gem Clicker</title>
+  </head>
+  <body>
+    <section>
+      <div class="main">
+        <div class="left">
+          <p>Gems <br /><span class="gem-cost pink-text">1500000</span></p>
+          <div class="gem-img-container">
+            <img
+              src="./assets/gem.png"
+              alt=""
+              class="gem-image"
+              onclick="incrementGem(event)"
+              draggable="false"
+            />
+          </div>
         </div>
-        <div class="gem-img-container">
-          <img src="./assets/upgrades/gem.png" alt="" class="gem-image" onclick="handleClick(event)" draggable="false">
+
+        <script id="upgrade-template" type="text/template">
+          <div class="upgrade type-{{type}}" onclick="buyUpgrade('{{name}}')" id="{{name}}-upgrade">
+            <div class="left-section">
+              <img
+                src="{{image}}"
+                alt=""
+                class="upgrade-img"
+              />
+            </div>
+            <div class="mid-section">
+              <h4>{{name}}</h4>
+              <div class="cost-info">
+                <p class="cost-text"><span class="{{name}}-cost">{{cost}}</span></p>
+                <img src="/assets/gem.png" alt="" class="gem-img" />
+              </div>
+            </div>
+            <div class="right-section">Level <span class="{{name}}-level">0</span></div>
+
+            <div class="next-level-info" id="{{name}}-next-level">
+              <p id="{{name}}-next-p">
+                +<span class="{{name}}-increase">{{increase}}</span> gems <br /> per click
+              </p>
+            </div>
+          </div>
+        </script>
+
+        <div class="right">
+          <div class="right-navbar">
+            <div id="upgrades-nav-button">Upgrade</div>
+            <div id="skills-nav-button">Skills</div>
+            <div id="artifacts-nav-button">Artifacts</div>
+          </div>
+
+          <div id="upgrades-container"></div>
         </div>
       </div>
 
-      <div class="upgrades-container">
-
-        <!-- CLicker -->
-        <div class="upgrade" onclick="buyClicker()">
-          <div class="upgrade-info-container">
-            <p>Next Level <br/>+<span id="clicker-gem">1</span></p>
-          </div>
-          <div class="">
-            <img src="./assets/upgrades/clicker-white.png" alt="" class="upgrade-img" draggable="false">
-          </div>
-          <div class="mid-section">
-            <h3>Clicker</h3>
-            <div class="gem-cost-container">
-              <p id="clicker-cost">10</p>
-              <img src="./assets/upgrades/gem.png" alt="" class="upgrade-gem" draggable="false">
-            </div>
-          </div>
-          <div>
-            Level: <span id="clicker-level">0</span>
-          </div>
-        </div>
-
-        <div class="upgrade" onclick="buyPickaxe()">
-          <div class="upgrade-info-container">
-            <p>Next Level <br/>+<span id="clicker-gem">1</span></p>
-          </div>
-          <div>
-            <img src="./assets/upgrades/pickaxe.png" alt="" class="upgrade-img" draggable="false">
-          </div>
-          <div class="mid-section">
-            <h3>Pickaxe</h3>
-            <div class="gem-cost-container">
-              <p id="pickaxe-cost">42</p>
-              <img src="./assets/upgrades/gem.png" alt="" class="upgrade-gem" draggable="false">
-            </div>
-          </div>
-          <div>
-            Level: <span id="pickaxe-level">0</span>
-          </div>
-        </div>
-
-        <div class="upgrade" onclick="buyMiner()">
-          <div>
-            <img src="./assets/upgrades/miner.png" alt="" class="upgrade-img" draggable="false">
-          </div>
-          <div class="mid-section">
-            <h3>Miner</h3>
-            <div class="gem-cost-container">
-              <p id="miner-cost">140</p>
-              <img src="./assets/upgrades/gem.png" alt="" class="upgrade-gem" draggable="false">
-            </div>
-          </div>
-          <div>
-            Level: <span id="miner-level">0</span>
-          </div>
-        </div>
-
-        <div class="upgrade" onclick="buyFactory()">
-          <div>
-            <img src="./assets/upgrades/factory.png" alt="" class="upgrade-img" draggable="false">
-          </div>
-          <div class="mid-section">
-            <h3>Factory</h3>
-            <div class="gem-cost-container">
-              <p id="factory-cost">740</p>
-              <img src="./assets/upgrades/gem.png" alt="" class="upgrade-gem" draggable="false">
-            </div>
-          </div>
-          <div>
-            Level: <span id="factory-level">0</span>
-          </div>
+      <div class="statistics">
+        <div class="texts">
+          <p>GPC: <span id="gpc-text" class="pink-text">1</span></p>
+          <p>GPS: <span id="gps-text" class="pink-text">0</span></p>
         </div>
       </div>
-    </div>
-    <div class="stats">
-      <div class="stats-info">
-        <div>Gems per click: <span id="gpc">1</span></div>
-        <div>Gems per second: <span id="gps">0</span></div>
+
+      <div class="util-buttons">
+        <button class="util-button prestige-button" onclick="prestige()">Prestige</button>
+        <button class="util-button" onclick="save()">Save</button>
+        <button class="util-button" onclick="load()">Load</button>
       </div>
 
-      <div class="skills-container">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+      <div class="relic">
+        Relic: <span id="relic">0</span>
       </div>
-    </div>
-  </section>
-  <script src="index.js"></script>
-</body>
+    </section>
+
+    <script type="module" src="index.js"></script>
+  </body>
 </html>
